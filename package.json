@@ -1,0 +1,82 @@
+{
+  "name": "@josh803316/error-handler",
+  "version": "1.0.0",
+  "description": "A powerful, extensible error handler that converts complex stack traces and error messages into human-readable responses for any JavaScript/TypeScript project.",
+  "module": "dist/esm/index.js",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/types/esm/index.d.ts",
+        "require": "./dist/types/cjs/index.d.ts"
+      },
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "directories": {
+    "dist": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josh803316/shared-error-handler.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "keywords": [
+    "error-handler",
+    "error-formatting",
+    "stack-trace",
+    "human-readable",
+    "api-errors",
+    "typescript",
+    "elysia",
+    "express",
+    "http-errors"
+  ],
+  "scripts": {
+    "fmt": "prettier -wu",
+    "compile": "tsc",
+    "lint": "eslint .",
+    "clean": "rm -rf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "bun build ./index.ts --target node --outdir ./dist/esm --tsconfig tsconfig.esm.json",
+    "build:types:cjs": "tsc --emitDeclarationOnly --project tsconfig.types.cjs.json",
+    "build:types:esm": "tsc --emitDeclarationOnly --project tsconfig.types.esm.json",
+    "postbuild:cjs": "node fix-imports.js -p ./dist/cjs",
+    "build:node": "bun run build:cjs && bun run build:types:cjs && bun run postbuild:cjs && ./fixup-node.sh",
+    "build:bun": "bun run build:esm && bun run build:types:esm && ./fixup-bun.sh",
+    "build": "bun run clean && bun run build:node && bun run build:bun",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.8",
+    "@types/pg": "^8.11.11",
+    "typescript": "^5.5.4"
+  },
+  "optionalDependencies": {
+    "pg": "^8.14.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "peerDependenciesMeta": {
+    "pg": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

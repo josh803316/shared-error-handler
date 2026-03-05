@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.cjs.json",
+  "compilerOptions": {
+    "outDir": "./dist/types/cjs",
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "exclude": ["dist", "node_modules"]
+}
