@@ -55,7 +55,8 @@
     "build:node": "bun run build:cjs && bun run build:types:cjs && bun run postbuild:cjs && ./fixup-node.sh",
     "build:bun": "bun run build:esm && bun run build:types:esm && ./fixup-bun.sh",
     "build": "bun run clean && bun run build:node && bun run build:bun",
-    "test": "bun test"
+    "test": "bun test",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@types/bun": "^1.2.8",
