@@ -4,6 +4,7 @@
     "outDir": "./dist/cjs",
     "module": "commonjs",
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "noEmit": false
   },
   "exclude": ["dist", "node_modules"]
