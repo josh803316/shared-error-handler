@@ -1,4 +1,5 @@
 {
+  "extends": "@josh803316/shared-config/tsconfig/base.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
