@@ -1,4 +1,4 @@
-import {CustomError, CustomErrorOpts} from './CustomError';
+import type {CustomError, CustomErrorOpts} from './CustomError';
 
 type ErrorConstructor = new (message: string, errorData?: CustomErrorOpts) => CustomError;
 

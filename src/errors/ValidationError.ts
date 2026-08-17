@@ -1,5 +1,5 @@
 import {APIError} from './APIError';
-import {CustomErrorOpts, HumanReadableError} from '../core/CustomError';
+import type {CustomErrorOpts, HumanReadableError} from '../core/CustomError';
 
 export interface ValidationIssue {
   field: string;
@@ -69,7 +69,7 @@ export class ValidationError extends APIError {
         issues: this.issues.map((issue) => ({
           field: issue.field,
           message: issue.message,
-          ...(issue.value !== undefined ? {value: issue.value} : {}),
+          ...(issue.value === undefined ? {} : {value: issue.value}),
         })),
       };
     }
