@@ -1,5 +1,5 @@
 import {httpStatusMessage, translateMessage} from './MessageTranslator';
-import {ParsedStackTrace, extractProviders, parseStackTrace} from './StackTraceParser';
+import {type ParsedStackTrace, extractProviders, parseStackTrace} from './StackTraceParser';
 import {fingerprintError} from '../utils/fingerprint';
 
 export type CustomErrorOpts = {
@@ -170,7 +170,7 @@ export class CustomError extends Error {
     };
 
     if (this.expose) {
-      result.technical = this.message !== humanMessage ? this.message : undefined;
+      result.technical = this.message === humanMessage ? undefined : this.message;
 
       if (this.parsedStack) {
         result.trace = {

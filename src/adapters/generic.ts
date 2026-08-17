@@ -19,9 +19,9 @@
  * ```
  */
 
-import {APIError} from '../errors/APIError';
+import type {APIError} from '../errors/APIError';
 import {CustomError} from '../core/CustomError';
-import {HumanReadableError} from '../core/CustomError';
+import type {HumanReadableError} from '../core/CustomError';
 import {handleError} from '../handler/handleError';
 
 export interface ErrorHandlerOptions {

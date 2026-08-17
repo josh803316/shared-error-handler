@@ -1,4 +1,4 @@
-import {CustomError, CustomErrorOpts, HumanReadableError} from '../core/CustomError';
+import {CustomError, type CustomErrorOpts, type HumanReadableError} from '../core/CustomError';
 import {postgresErrorCodes, postgresHumanMessages} from '../db/postgres-codes';
 
 export interface DatabaseErrorOpts extends CustomErrorOpts {

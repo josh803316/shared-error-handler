@@ -1,4 +1,4 @@
-import {CustomError, CustomErrorInfo, CustomErrorOpts, HumanReadableError} from '../core/CustomError';
+import {CustomError, type CustomErrorInfo, type CustomErrorOpts, type HumanReadableError} from '../core/CustomError';
 import {httpStatusMessage} from '../core/MessageTranslator';
 import {postgresErrorCodes, postgresHumanMessages} from '../db/postgres-codes';
 
@@ -12,13 +12,13 @@ export class APIError extends CustomError {
     super(message, errorData ?? {});
 
     this.statusCode =
-      statusCode !== undefined
-        ? statusCode
-        : typeof errorData?.statusCode === 'number'
+      statusCode === undefined
+        ? typeof errorData?.statusCode === 'number'
           ? errorData.statusCode
           : typeof errorData?.status === 'number'
             ? errorData.status
-            : 500;
+            : 500
+        : statusCode;
 
     Object.setPrototypeOf(this, APIError.prototype);
 

@@ -26,7 +26,7 @@ async function processFile(filePath) {
 async function processFilesInDirectory(dir) {
   const files = await fs.readdir(dir);
 
-  for (let file of files) {
+  for (const file of files) {
     const filePath = path.join(dir, file);
 
     if ((await fs.stat(filePath)).isDirectory()) {

@@ -1,4 +1,4 @@
-import {CustomError, CustomErrorInfo, CustomErrorOpts} from '../core/CustomError';
+import {CustomError, type CustomErrorInfo, type CustomErrorOpts} from '../core/CustomError';
 
 /**
  * A general-purpose error for cases that don't fit a more specific type.

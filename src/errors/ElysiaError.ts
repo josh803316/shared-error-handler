@@ -1,5 +1,5 @@
 import {APIError} from './APIError';
-import {CustomErrorOpts, HumanReadableError} from '../core/CustomError';
+import type {CustomErrorOpts, HumanReadableError} from '../core/CustomError';
 
 const ELYSIA_CODE_MAP: Record<string, number> = {
   NOT_FOUND: 404,

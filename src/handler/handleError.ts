@@ -1,4 +1,4 @@
-import {CustomError, CustomErrorOpts} from '../core/CustomError';
+import {CustomError, type CustomErrorOpts} from '../core/CustomError';
 import {errorRegistry} from '../core/ErrorRegistry';
 import {DefaultError} from '../errors/DefaultError';
 
